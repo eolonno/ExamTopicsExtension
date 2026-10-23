@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask ChatGPT — ExamTopics</title>
+  <link rel="stylesheet" href="answer.css">
+</head>
+<body>
+  <header>
+    <div><p class="eyebrow">ExamTopics Navigator</p><h1>Ask ChatGPT</h1></div>
+    <button id="stop" type="button">Stop generating</button>
+  </header>
+  <main>
+    <div class="meta"><span id="language"></span><span id="status" role="status">Connecting…</span></div>
+    <article id="answer" aria-label="ChatGPT answer" aria-busy="true"></article>
+    <p id="notice">The answer will appear here as it is generated.</p>
+  </main>
+  <script src="answer.js"></script>
+</body>
+</html>

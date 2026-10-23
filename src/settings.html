@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <form id="ai-settings-form">
+    <label for="openai-api-key">OpenAI API key</label>
+    <input type="password" id="openai-api-key" autocomplete="off" spellcheck="false" placeholder="sk-…">
+    <label for="answer-language" class="language-label">Answer language</label>
+    <select id="answer-language">
+      <option value="english">English</option>
+      <option value="russian">Russian</option>
+    </select>
+    <p>Stored locally. API usage is billed separately from ChatGPT.</p>
+    <div class="actions">
+      <button type="submit">Save settings</button>
+      <button type="button" id="remove-key">Remove key</button>
+    </div>
+    <p id="settings-status" role="status" aria-live="polite"></p>
+  </form>
+  <script src="settings.js"></script>
+</body>
+</html>

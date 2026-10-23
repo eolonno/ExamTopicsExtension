@@ -86,6 +86,25 @@ async function runNavigation(action, data) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const pageInfo = await checkCurrentPage();
+    const updateAiButton = configured => {
+        document.getElementById('ai-actions').classList.toggle('is-hidden', !configured || !pageInfo.isExamTopics);
+    };
+    async function refreshAiSettings() {
+        try {
+            const { openaiApiKey } = await extensionApi.storage.local.get('openaiApiKey');
+            updateAiButton(Boolean(openaiApiKey?.trim()));
+        } catch { updateAiButton(false); }
+    }
+    extensionApi.storage.onChanged.addListener((changes, area) => {
+        if (area === 'local' && changes.openaiApiKey) refreshAiSettings();
+    });
+    await refreshAiSettings();
+    for (const [id, mode] of [['ask-chatgpt', 'detailed'], ['answer-only', 'answer-only']]) {
+        document.getElementById(id).addEventListener('click', async () => {
+            const result = await sendMessageToContent('ask-chatgpt', { mode });
+            if (result.message) showStatus(result.message, result.status);
+        });
+    }
 
     if (!pageInfo.isExamTopics) {
         document.getElementById('not-on-exam').classList.remove('is-hidden');

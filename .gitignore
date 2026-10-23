@@ -6,7 +6,6 @@ build/
 
 # Development
 node_modules/
-package-lock.json
 *.log
 
 # IDE

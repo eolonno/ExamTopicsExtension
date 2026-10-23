@@ -32,6 +32,11 @@ Click the extension icon to open the popup. Use Next and Previous to navigate. U
 ![discussion_page.png](screenshots/discussion_page.png)
 
 ## IMPORTANT
+### OpenAI API key
+Open the extension popup or the on-page panel, expand **Settings**, paste your OpenAI API key into **OpenAI API key**, and click **Save settings**.
+
+![openai_settings.png](screenshots/openai_settings.png)
+
 If navigation cannot find a page, Google may require a captcha. Solve it in the opened tab.
 
 ![captcha.png](screenshots/captcha.png)
